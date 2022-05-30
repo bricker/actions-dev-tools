@@ -1,0 +1,27 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        type: choice
+        description: Type of version bump. Use "auto" to increment version based on commits.
+        required: false
+        default: auto
+        options:
+          - auto
+          - major
+          - minor
+          - patch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: bricker/actions/setup-repo@v1
+        with:
+          fetch-depth: 0
+
+      - uses: bricker/actions/release-npm@v1
+        with:
+          release_type: ${{ github.event.inputs.release_type }}

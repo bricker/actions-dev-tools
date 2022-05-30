@@ -1,0 +1,1 @@
+/home/bryan/code/github.com/bricker/actions-dev-tools/node_modules/@bricker/tooling-configs/configs/ava.config.js
